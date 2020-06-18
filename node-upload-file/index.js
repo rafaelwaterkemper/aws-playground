@@ -19,21 +19,24 @@ http.createServer((req, res) => {
     //     });
 
     //     var count = 0;
+    //     var fileValue
     //     rl.on('line', function (line) {
     //         ++count;
     //         if(count <= 3 || count === 204) {
     //             console.log('Linha de cabeçalho, nõ será escrita no arquivo', line);
     //         } else {
-    //             file.write(line);
+    //             fileValue += line
     //         }
     //         if (count === 204) {
-    //             file.end();
+    //             fs.writeFile('./teste.png', fileValue)
+    //             // file.end();
     //         }
     //     });
-    // console.log(`body ${chunk}`)
-    req.on('end', () => {
-        console.log('No more data in response.');
-    });
+    //     console.log(`body ${chunk}`)
+    // });
+    // req.on('end', () => {
+    //     console.log('No more data in response.');
+    // });
 }).listen(8080, () => console.log('Listen on port 8080'))
 
 function onPosting(data) {
