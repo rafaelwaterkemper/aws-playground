@@ -10,7 +10,7 @@ module.exports.upload = async event => {
         'Content-type': file.file.contentType,//you can change any content type
         'content-disposition': `attachment; filename=${file.file.filename}` // key of success
       },
-      body: file.file.content.data.toString('base64'),
+      body: file.file.content.toString('base64'),
       isBase64Encoded: true
   };
 
