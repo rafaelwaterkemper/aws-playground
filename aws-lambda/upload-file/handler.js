@@ -6,14 +6,11 @@ module.exports.upload = async event => {
 
   return {
     statusCode: 200,
-      headers: {
-        'Content-type': file.file.contentType,//you can change any content type
-        'content-disposition': `attachment; filename=${file.file.filename}` // key of success
-      },
-      body: file.file.content.toString('base64'),
-      isBase64Encoded: true
+    headers: {
+      'Content-type': file.file.contentType,//you can change any content type
+      'content-disposition': `attachment; filename=${file.file.filename}` // key of success
+    },
+    body: file.file.content
   };
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 };
