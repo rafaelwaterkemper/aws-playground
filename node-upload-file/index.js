@@ -6,7 +6,7 @@ var fs = require('fs')
 http.createServer((req, res) => {
     let body
     let readableStream
-    req.res=res;
+    req.res = res;
     req.on("data", onPosting).on("end", onPosted);
 
     // req.on('data', (chunk) => {
@@ -53,15 +53,21 @@ function onPosting(data) {
             this.dataIndex = data.length;
         }
     }
- 
+
 }
 
 function onPosted() {
     var boundary = extract(this.headers["content-type"], " boundary=");
     var form = parseForm(boundary, this.data);
-    console.log(form);
-    fs.writeFile(`./${form.file.filename}`, form.file.value)   
-    this.res.end("Data Posted.");
+    fs.writeFile(`./${form.file.filename}`, form.file.value)
+    this.res.writeHead(200,
+        {
+            'Content-type': 'image/png',
+            'Content-Disposition': `attachment; filename="${form.file.filename}"`
+        }
+        )
+    this.res.write(form.file.value);
+    this.res.end();
 }
 
 function extract(arr, start, end) {
