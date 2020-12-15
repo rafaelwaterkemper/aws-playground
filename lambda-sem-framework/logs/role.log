@@ -1,0 +1,24 @@
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "lambda-exemplo",
+        "RoleId":"AROAVE37OYS57ZTQGSLHL",
+        "Arn": "arn:aws:iam::354065237179:role/lambda-exemplo",
+        "CreateDate": "2020-11-30T00:40:56+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        }
+    }
+}
+
+
+cat logs/role.log | sed -n 's/^[[:blank:]]*"RoleId":\([^.]\+\).*/\1/p'
