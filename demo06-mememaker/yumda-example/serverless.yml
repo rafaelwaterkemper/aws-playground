@@ -21,5 +21,3 @@ functions:
 layers:
   dependencies:
     path: dependencies
-    package:
-      artifact: dependencies.zip

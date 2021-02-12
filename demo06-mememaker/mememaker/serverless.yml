@@ -1,7 +1,6 @@
 
 service: mememaker
 
-
 provider:
   name: aws
   runtime: nodejs12.x

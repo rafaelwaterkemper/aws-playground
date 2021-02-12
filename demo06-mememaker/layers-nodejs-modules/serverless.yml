@@ -13,7 +13,7 @@ functions:
           path: 'hello'
           method: 'get'
     layers:
-      - {Ref: NodeModulesLambdaLayer}
+      - {Ref: NodeModulesLambdaLayer} #Name of the desired layer with LambdaLayers concatened
 
 layers:
   NodeModules:
