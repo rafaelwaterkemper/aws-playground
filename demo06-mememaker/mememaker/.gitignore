@@ -4,3 +4,8 @@ jspm_packages
 
 # Serverless directories
 .serverless
+
+layer/nodejs/node_modules
+
+dependencies
+dependencies.zip

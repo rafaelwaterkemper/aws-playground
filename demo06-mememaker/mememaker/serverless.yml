@@ -13,6 +13,7 @@ exclude:
   - ./dependencies.zip
   - ./dependencies/
   - ./mock/
+  - ./node_modules
 
 
 functions:
@@ -20,6 +21,7 @@ functions:
     handler: app/handler.mememaker
     layers:
       - {Ref: GmLibraryLambdaLayer}
+      - {Ref: NodeModulesLambdaLayer}
     events:
       - http:
           method: get
@@ -28,7 +30,11 @@ functions:
 
 layers:
   GmLibrary:
-    path: dependencies
     package:
       artifact: dependencies.zip
+  NodeModules:
+    path: layer
+    compatibleRuntimes:
+      - nodejs12.x
+
 
